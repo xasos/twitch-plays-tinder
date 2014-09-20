@@ -5,24 +5,50 @@
 		<script>
 			var tinderPeople = tinderPeople || [];
 			var currentPerson = currentPerson || null;
+			var list = {};
 
 			$(document).ready(function(){
 				nextPerson();
 
 				function pollForPeople() {
-					$.ajax('somewebsite', {
-						url: 'www.google.com',
+					$.ajax({
+						url: '//localhost:1337/main/get',
 						data: '',
+						type: 'GET',
+						crossDomain: true,
 						success: function(data){
-							// set tinderPeople to data
+							list = data;
+							console.log(data);
 						},
 						error: function(){
-
-						},
-						type: 'POST'
+							console.log("Could not load data.")
+						}						
 					});
 				}
-			
+				
+				// $(function() {
+				//    $(window).keypress(function(l) {
+				//        var ev = l || window.event;
+				//        var key = ev.keyCode || ev.which;
+				//        alert("l was pressed");
+				//    });
+				// });
+
+				// $(function() {
+				//    $(window).keypress(function(r) {
+				//        var ev = r || window.event;
+				//        var key = ev.keyCode || ev.which;
+				//        alert("r was pressed");
+				//    });
+				// });
+
+			$(document).keydown(function(event){
+    			switch (event.keyCode) {
+		            case 37:
+		                alert("left");
+		            case 39:
+		                alert("right");
+		        }});
 
 				function nextPerson(){
 					if(tinderPeople.length == 0){
@@ -43,7 +69,7 @@
 		<div id="person">
 			<div id="person-images">
 				<center>
-					<img src="testpic.jpg" height="100%"/>
+					<img src="testpic.jpg" height="75%" id="tinder-image" />
 				</center>
 			</div>
 			<div id="person-details">
@@ -51,19 +77,15 @@
 					24
 				</div>
 				<div id="person-name">
-					Dummy Name
+					My Name
 				</div>
 				<div id="person-desc">
-					daf;dl kfjdsa;lfkjds;lfjdslajfd;lsakfjdk fj lk;dsaf
+					My description.
 				</div>
-				<div id="person-interests">
+				<div id="past">
+					Past:
 				</div>
 			</div>
-		</div>
-		<div id="controls">
-			<b>Twitch Controls</b>
-			<h4>type <- in chat for swipe left (no)</h4>
-			<h4>type -> in chat for swipe right (yes)</h4>
 		</div>
 	</body>
 </html>

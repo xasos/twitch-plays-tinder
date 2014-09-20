@@ -16,6 +16,10 @@ var bodyParser = require('body-parser')
 
 module.exports = {
 
+  index: function(req, res, next) {
+    res.view('index.html');
+  },
+
   get: function(req, res, next) {
     tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, r, body) {
       tinder.get_nearby_users(function(err, r, body) {
