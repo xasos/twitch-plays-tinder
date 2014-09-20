@@ -17,34 +17,31 @@ var bodyParser = require('body-parser')
 module.exports = {
 
   get: function(req, res, next) {
-    tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, res, body) {
-      tinder.get_nearby_users(function(err, res, body) {
-        res.send(body);
+    tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, r, body) {
+      tinder.get_nearby_users(function(err, r, body) {
+        res.json(body);
       })
     });
   },
 
   update: function(req, res, next) {
-    tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, res, body) {
+    tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, r, body) {
       if (req.param('isLike') === true) {
-        tinder.like(req.param('userId'), function(err, res, body) {
-          var info = JSON.parse(body);
-          res.json(info);
+        tinder.like(req.param('userId'), function(err, r, body) {
+          res.json(body);
         });
       } else {
-        tinder.dislike(req.param('userId'), function(err, res, body) {
-          var info = JSON.parse(body);
-          res.json(info);
+        tinder.dislike(req.param('userId'), function(err, r, body) {
+          res.json(body);
         });
       }
     });
   },
 
   changeLocation: function(req, res, next) {
-    tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, res, body) {
-      tinder.update_location(req.param('lat'), req.param('long'), function(err, res, body) {
-        var info = JSON.parse(body);
-        res.json(info);
+    tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, r, body) {
+      tinder.update_location(req.param('lat'), req.param('long'), function(err, r, body) {
+        res.json(body);
       });
     });
   }
