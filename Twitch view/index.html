@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css"/>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script>
+			var tinderPeople = tinderPeople || [];
+			var currentPerson = currentPerson || null;
+
+			$(document).ready(function(){
+				nextPerson();
+
+				function pollForPeople() {
+					$.ajax('somewebsite', {
+						url: 'www.google.com',
+						data: '',
+						success: function(data){
+							// set tinderPeople to data
+						},
+						error: function(){
+
+						},
+						type: 'POST'
+					});
+				}
+			
+
+				function nextPerson(){
+					if(tinderPeople.length == 0){
+						setTimeout(function(){
+							pollForPeople();
+							nextPerson();
+						}, 500);
+					}
+					else {
+						currentPerson = tinderPeople.pop();
+						// process data into dom
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="person">
+			<div id="person-images">
+				<center>
+					<img src="testpic.jpg" height="100%"/>
+				</center>
+			</div>
+			<div id="person-details">
+				<div id="person-age">
+					24
+				</div>
+				<div id="person-name">
+					Dummy Name
+				</div>
+				<div id="person-desc">
+					daf;dl kfjdsa;lfkjds;lfjdslajfd;lsakfjdk fj lk;dsaf
+				</div>
+				<div id="person-interests">
+				</div>
+			</div>
+		</div>
+		<div id="controls">
+			<b>Twitch Controls</b>
+			<h4>type <- in chat for swipe left (no)</h4>
+			<h4>type -> in chat for swipe right (yes)</h4>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: Helvetica;
+	font-size: 16px;
+}
+
+#person {
+	height: 100%;
+}
+
+#person > div {
+	border: 4px solid white;
+	border-radius: 20px;
+}
+
+#person-images {
+	margin: 0 auto;
+	display: inline;
+	height: 400px;
+	max-height: 400px;
+}
+
+#person-images img {
+	height: 400px;
+	max-height: 400px;
+}
+
+#person-age {
+	font-size: 32px;
+	font-weight: 200;
+	display: inline;
+
+}
+
+#person-name {
+	font-size: 22px;
+	font-weight: 600;
+	display: inline;
+
+}
+
+#person-desc {
+	font-size: 16px;
+}
+
+#person-interests {
+
+}
+
+#person-details {
+	width: 400px;
+	margin: 0 auto;
+}
+
+#controls {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0, 0.5);
+	padding: 20px 20px;
+}
