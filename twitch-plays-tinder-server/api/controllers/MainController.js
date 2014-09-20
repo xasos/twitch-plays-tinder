@@ -17,7 +17,7 @@ var bodyParser = require('body-parser')
 module.exports = {
 
   index: function(req, res, next) {
-    res.view('index.html');
+    res.view('main/index');
   },
 
   get: function(req, res, next) {
