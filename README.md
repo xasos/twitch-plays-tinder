@@ -1,2 +1,2 @@
-Twitch-Plays-Tinder
+twitch-plays-tinder
 ===
