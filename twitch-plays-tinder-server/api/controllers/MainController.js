@@ -11,37 +11,40 @@ var FACEBOOK_TOKEN = "CAAGm0PX4ZCpsBADkIu3ZC7CpQZBbYDtS7JNw6DlEOsUg8nQeok35RjMqG
 
 var TinderPro = require('tinder_pro')
 var tinder = new TinderPro()
+var bodyParser = require('body-parser')
 
 
 module.exports = {
 
-  get: function(req, res) {
+  get: function(req, res, next) {
     tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, res, body) {
-      res.json(cmpny);
       tinder.get_nearby_users(function(err, res, body) {
-        res.json(body);
+        res.send(body);
       })
     });
   },
 
-  update: function(req, res) {
+  update: function(req, res, next) {
     tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, res, body) {
       if (req.param('isLike') === true) {
         tinder.like(req.param('userId'), function(err, res, body) {
-          res.json(body);
+          var info = JSON.parse(body);
+          res.json(info);
         });
       } else {
         tinder.dislike(req.param('userId'), function(err, res, body) {
-          res.json(body);
+          var info = JSON.parse(body);
+          res.json(info);
         });
       }
     });
   },
 
-  changeLocation: function(req, res) {
+  changeLocation: function(req, res, next) {
     tinder.sign_in(FACEBOOK_ID, FACEBOOK_TOKEN, function(err, res, body) {
       tinder.update_location(req.param('lat'), req.param('long'), function(err, res, body) {
-        res.json(body);
+        var info = JSON.parse(body);
+        res.json(info);
       });
     });
   }
