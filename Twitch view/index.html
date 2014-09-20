@@ -43,12 +43,15 @@
 				// });
 
 			$(document).keydown(function(event){
-    			switch (event.keyCode) {
-		            case 37:
-		                alert("left");
-		            case 39:
-		                alert("right");
-		        }});
+    				if (event.keyCode == 39) {
+    					alert("right");
+    				};
+
+    				if (event.keyCode == 37) {
+    					alert("left");
+    				};		                
+		            
+		        });
 
 				function nextPerson(){
 					if(tinderPeople.length == 0){
