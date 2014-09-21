@@ -1,7 +1,8 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="/styles/styles.css"/>
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<link rel="stylesheet" href="/styles/uikit.css"/> 
+		<script src="/js/jquery.js"></script>
+		<script src="/js/alert.js"></script>
 		<script>
 			var tinderPeople = tinderPeople || [];
 			var currentPerson = currentPerson || null;
@@ -35,11 +36,13 @@
 				$(document).keydown(function(event){
     				if (event.keyCode == 39) {
     					alert("right");
+    					$.UIkit.notify("Right", {pos:'top-right'});
     					nextPerson();
     				};
 
     				if (event.keyCode == 37) {
     					alert("left");
+    					$.UIkit.notify("Left", {pos:'top-left'});
     					nextPerson();
     				};	               
 		        });
@@ -60,15 +63,18 @@
 		</script>
 	</head>
 	<body>
+	<section style="">
+		Meet NAME.
+	</section>
 		<div id="person">
 			<div id="person-images">
-				<img id="main-img" src="/images/testpic.jpg" height="75%" id="tinder-image" />				
+				<img id="main-img" src="/images/tinder.jpg" height="75%" id="tinder-image" />
 			</div>
 			<div id="person-details">
-				<div id="person-age">24</div>
-				<div id="person-name">My Name</div>
-				<div id="person-desc">My description.</div>
-				<div id="past">Past:</div>
+				<div id="person-age"></div>
+				<div id="person-name"></div>
+				<div id="person-desc"></div>
+				<div id="past"></div>
 			</div>
 		</div>
 	</body>
