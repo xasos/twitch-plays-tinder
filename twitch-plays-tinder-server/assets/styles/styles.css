@@ -1,4 +1,3 @@
-Andy 6:47 AM
 body {
   color: #ff7258;
   background-size: cover;
@@ -14,7 +13,7 @@ body {
   border-radius: 50%; }
 
 #person-name {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   font-size: 3rem; }
 
 #person-age {
@@ -23,11 +22,11 @@ body {
 
 #person-desc {
   margin-top: 3rem;
-  font-size: 1.3rem;
-  color: #ddd; }
+  font-size: 1.5rem;
+  color: #777; }
 
 #past {
-  color: #eee;
+  color: #ddd;
   margin-top: 1.3rem;
   margin-bottom: 1rem; }
 
@@ -48,7 +47,7 @@ body {
   border-radius: 5px;
   opacity: .7; }
 
-#like:active {
+#like:active, [active] {
   opacity: 0.8; }
 
 #dislike {
@@ -61,5 +60,9 @@ body {
   border-radius: 5px;
   opacity: .7; }
 
-#dislike:active {
+#dislike:active, [active] {
   opacity: .8; }
+
+[logo] {
+  height: 10rem;
+  padding-left: 0; }

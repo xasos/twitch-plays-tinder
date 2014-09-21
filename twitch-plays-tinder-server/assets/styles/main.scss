@@ -16,7 +16,7 @@ body {
 }
 
 #person-name {
-	margin-top: 3rem;
+	margin-top: 3.5rem;
 	font-size: 3rem;
 }
 #person-age {
@@ -25,11 +25,11 @@ body {
 }
 #person-desc {
 	margin-top: 3rem;
-	font-size: 1.3rem;
-	color: #ddd
+	font-size: 1.5rem;
+	color: #777
 }
 #past {
-	color: #eee;
+	color: #ddd;
 	margin-top: 1.3rem;
 	margin-bottom: 1rem;
 }
@@ -54,7 +54,7 @@ body {
 	opacity: .7;
 }
 
-#like:active {
+#like:active, [active] {
 	opacity: .8
 }
 
@@ -69,7 +69,11 @@ body {
 	opacity: .7;
 }
 
-#dislike:active {
+#dislike:active, [active] {
 	opacity: .8;
 }
 
+[logo] {
+	height: 10rem;
+	padding-left: 0;
+}
