@@ -3,14 +3,31 @@
 <head>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/css/uikit.almost-flat.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="//github.hubspot.com/offline/themes/offline-theme-slide.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/0.5.7/themes/black/pace-theme-bounce.css">
 
-    <script src="/js/app.js"
+    
+</head>
+
+<body ondragstart="return false">
+<div centered logo><img src="/images/logo.png" alt=""></div>
+
+    <div id="person">
+        <div centered id="person-images">
+            <img id="main-img" src="/images/tinder.jpg" height="75%" id="tinder-image" />
+        </div>
+        <div lg-container centered id="person-details">
+
+            <div id="person-name">Meet Karen</div><div id="person-age">she's 20</div>
+            <div id="person-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam et quod tempore, quas unde vitae consectetur fuga maxime culpa, error quae praesentium dolorum cupiditate eum! Explicabo, amet eaque sed sit?</div>
+            <div id="past">Also met Tor, Bor</div>
+
+            <button id="like" onclick="nextPerson()">Like</button>
+            <button id="dislike" onclick="nextPerson()">Dislike</button>
+        </div>
+    </div>
+<script src="/js/app.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/js/addons/notify.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pace/0.5.7/pace.min.js"></script>
-	<script src="//raw.githubusercontent.com/HubSpot/offline/v0.7.11/offline.min.js"></script>
     <script>
 			var list = {};
 			var personCount = 0; 
@@ -53,7 +70,7 @@
 				// now replaces user object with image 
 				function nextPerson(){
 					if (personCount < 5) {
-						$('#main-img').attr('src', list.results[personCount].photos[personCount].processedFiles[0].url);
+						$("#main-img").attr('src', list.results[personCount].photos[personCount].processedFiles[0].url);
 
 						//calculate age
 						$("#person-age").text((list.results[personCount].birth_date).slice(0,10) -(list.results[personCount].ping_time).slice(0,10));
@@ -84,26 +101,6 @@
 				}
 			});
 		</script>
-</head>
-
-<body ondragstart="return false">
-<div centered logo><img src="/images/logo.png" alt=""></div>
-
-    <div id="person">
-        <div centered id="person-images">
-            <img id="main-img" src="/images/tinder.jpg" height="75%" id="tinder-image" />
-        </div>
-        <div lg-container centered id="person-details">
-
-            <div id="person-name">Meet Karen</div><div id="person-age">she's 20</div>
-            <div id="person-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam et quod tempore, quas unde vitae consectetur fuga maxime culpa, error quae praesentium dolorum cupiditate eum! Explicabo, amet eaque sed sit?</div>
-            <div id="past">Also met Tor, Bor</div>
-
-            <button id="like" onclick="nextPerson()">Like</button>
-            <button id="dislike" onclick="nextPerson()">Dislike</button>
-        </div>
-    </div>
-
 </body>
 
 </html>
