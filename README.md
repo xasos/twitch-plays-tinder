@@ -8,5 +8,5 @@ $ node app.js
 ```
 
 ## License
-[MIT License](LICENSE)
+[MIT License](LICENSE}
 
