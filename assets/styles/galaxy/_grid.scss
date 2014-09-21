@@ -1,0 +1,138 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+section {
+    @include border-box;
+    @include display-flex;
+    @include direction-row;
+    @include flex-wrap;
+    @include flex-basis;
+    max-width: 100%;
+}
+section[g~='reverse'] {
+    @include reverse-direction-row;
+}
+ 
+[g~="1"],
+[g~="2"],
+[g~="3"],
+[g~="4"],
+[g~="5"],
+[g~="6"],
+[g~="7"],
+[g~="8"],
+[g~="9"],
+[g~="10"],
+[g~="11"],
+[g~="12"],
+[g~="push-1"],
+[g~="push-2"],
+[g~="push-3"],
+[g~="push-4"],
+[g~="push-5"],
+[g~="push-6"],
+[g~="push-7"],
+[g~="push-8"],
+[g~="push-9"],
+[g~="push-10"],
+[g~="push-11"],
+[g~="push-12"] {
+  
+  @include border-box;
+  display: -webkit-box;
+  @include display-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  @include column-flex-direction;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+@include grid_columns;
+
+[g~="start"] {
+  @include start;
+}
+
+[g~="center"], [center], [g~="centered"], [centered] {
+  @include centered;
+}
+
+[g~="end"] {
+  @include end;
+}
+
+[g~="top"] {
+  @include top;
+}
+
+[g~="middle"] {
+  @include middle;
+}
+
+[g~="bottom"] {
+  @include bottom;
+}
+
+[g~="around"] {
+  @include around;
+}
+
+[g~="between"] {
+  @include between;
+}
+
+[g~="first"] {
+  @include first;
+}
+[g~="last"] {
+  @include last;
+}
+
+[g~="xlg-container"] {
+  max-width: $xlg-breakpoint;
+}
+
+[g~='lg-container'] {
+    max-width: $lg-breakpoint;
+}
+[g~='md-container'] {
+    max-width: $md-breakpoint;
+}
+[g~='sm-container'] {
+    max-width: $sm-breakpoint;
+}
+[g~='xsm-container'] {
+    max-width: $xsm-breakpoint;
+}
+
+@media screen and (max-width: $md-breakpoint) {
+
+  [g~="6"],
+  [g~="7"],
+  [g~="8"],
+  [g~="9"],
+  [g~="10"],
+  [g~="11"],
+  [g~="12"] {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  [g~="1"],
+  [g~="2"],
+  [g~="3"],
+  [g~="4"],
+  [g~="5"] {
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+}

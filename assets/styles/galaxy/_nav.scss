@@ -1,0 +1,108 @@
+/* Header should wrap content */
+
+header {
+    z-index: 10;
+    top: 0;
+    margin: 0;
+    padding: 1em;
+    opacity: $low-transparency;
+    background-color: $nav-color;
+    & > ul > li {
+        margin: 0 2rem;
+        & > [active] {
+            color: contrast-color($nav-color);
+        }
+
+        & > a {
+            color: lighten($nav-color, 50);
+            &:hover {
+                transition-duration: .3s;
+                @if (lightness($nav-color) > 50) {
+                    /* Lighter navs should have darker feedback */
+                    color: darken(contrast-color($nav-color), 50);
+                }
+                @else
+
+                {
+                    /* Darker navs should have brighter feedback */
+                    color: lighten(contrast-color($nav-color), 50);
+                }
+            }
+            &:active:not([active]) {
+                color: $primary-color;
+                transition-duration: 0s;
+            }
+        }
+    }
+}
+[logo] {
+    float: left;
+    width: auto;
+    max-height: 50px;
+    padding: 0 50px 0 50px;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    margin-top: 3rem;
+    padding: 5rem 0;
+    text-align: center;
+    color: darken(contrast-color($footer-background), 20);
+    background: $footer-background;
+}
+/* Dropdown */
+
+[g~='caret'] {
+    width: 0;
+    height: 0;
+    margin-top: -4px;
+    margin-right: 0;
+    margin-left: 7px;
+    vertical-align: middle;
+    border-top: 6px solid #717d82;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+nav[g~='grouped'] > ul {
+    font-size: 13px;
+    position: absolute;
+    float: left;
+    min-width: 7rem;
+    margin: 15px 0 0;
+    padding: 10px 0;
+    border: 1px solid #c1cbd2;
+    border-radius: 3px;
+    background: #fff;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 1px 2px rgba(113, 125, 130, .1);
+    box-shadow: 0 1px 2px rgba(113, 125, 130, .1);
+    & > li {
+        line-height: 1.4;
+        display: block;
+        clear: both;
+        padding: 6px 20px;
+        cursor: pointer;
+        white-space: nowrap;
+        opacity: .8;
+    }
+}
+
+nav[g~="grouped"] {
+    & > ul {
+        margin-top: 3rem;
+        margin-left: 5.5rem;
+    }
+    & > span[g~="arrow"] {
+        left: 50%;
+        margin-left: -7px;
+        position: absolute;
+        top: -8px;
+        background-position: -727px 0;
+        height: 9px;
+        width: 15px;
+    }
+    &[g~='dropdown'] > li:hover {
+        background: #eee;
+    }
+}

@@ -1,0 +1,310 @@
+/*
+Todo:
+1. Tooltips break responsiveness (text overflows container)
+
+*/
+
+/********************************* Layout ******************************/
+[data-tooltip] {
+  position: relative;
+  display: inline-block;
+  &:before, &:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+  font-weight: bold;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+&:before {
+  content: '';
+  border: .5rem solid transparent;
+}
+&:after {
+  height: 1.5rem;
+  padding: .8rem .8rem 0 .8rem;
+  font-size: 1rem;
+  line-height: .8rem;
+  content: attr(data-tooltip);
+  white-space: nowrap;
+}
+}
+
+
+
+[data-tooltip]:before {
+  border-top-color: #323232;
+  &:after {
+  background-color: #323232;
+  color: lighten($danger-color, 80);
+}
+}
+
+[data-tooltip][tooltip="bottom"]{
+  &:before {
+  border-bottom-color: #323232;
+}
+&:after {
+  background-color: #323232;
+  color: lighten($danger-color, 80);
+}
+
+}
+[data-tooltip][tooltip~="left"] {
+  &:before {
+  border-left-color: #323232;
+}
+&:after {
+  background-color: #323232;
+  color: lighten($danger-color, 80);
+}
+}
+
+
+[data-tooltip][g~="right"] {
+  &:before {
+  border-right-color: #323232;
+}
+&:after {
+  background-color: #323232;
+  color: lighten($danger-color, 80);
+}
+
+}
+[data-tooltip]:hover, [data-tooltip]:focus {
+  background-color: transparent;
+}
+[data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:focus:before, [data-tooltip]:focus:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/******************************* Position ****************************/
+[tooltip~="right"]:before, [tooltip~="left"]:before, [tooltip~="right"]:after, [tooltip~="left"]:after {
+  bottom: 50%;
+}
+[tooltip~="right"]:before, [tooltip~="left"]:before {
+  margin-bottom: -5px;
+}
+[tooltip~="right"]:after, [tooltip~="left"]:after {
+  margin-bottom: -14.66667px;
+}
+[tooltip~="left"]:before, [tooltip~="right"]:after {
+  left: 100%;
+}
+[tooltip~="right"]:before {
+  margin-left: -2px;
+}
+[tooltip~="right"]:after {
+  margin-left: 10px;
+}
+[tooltip~="left"]:before, [tooltip~="right"]:after {
+  right: 100%;
+}
+[tooltip~="left"]:before {
+  margin-right: -2px;
+}
+[tooltip~="left"]:after {
+  margin-right: 10px;
+}
+[tooltip~="bottom"]:before, [tooltip]:before, [tooltip~="bottom"]:after, [tooltip]:after {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+[tooltip~="bottom"]:after, [tooltip]:after {
+  width: auto;
+}
+[tooltip~="bottom"]:before, [tooltip~="bottom"]:after {
+  top: 100%;
+}
+[tooltip~="bottom"]:before {
+  margin-top: -5px;
+}
+[tooltip~="bottom"]:after {
+  margin-top: 7px;
+}
+[tooltip~="bottom"]:hover:before, [tooltip~="bottom"]:hover:after {
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+[tooltip]:before, [tooltip]:after {
+  bottom: 100%;
+}
+[tooltip]:before {
+  margin-bottom: -5px;
+}
+[tooltip]:after {
+  margin-bottom: 7px;
+}
+[tooltip]:hover:before, [tooltip]:hover:after {
+  -webkit-transform: translate(-50%, 0px);
+  -moz-transform: translate(-50%, 0px);
+  -ms-transform: translate(-50%, 0px);
+  -o-transform: translate(-50%, 0px);
+  transform: translate(-50%, 0px);
+}
+
+[tooltip~="rounded"]:after {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+[tooltip~="fade"]:before, [tooltip~="fade"]:after {
+  -webkit-transition: opacity 0.2s linear, visibility 0.2s linear;
+  -moz-transition: opacity 0.2s linear, visibility 0.2s linear;
+  -o-transition: opacity 0.2s linear, visibility 0.2s linear;
+  -ms-transition: opacity 0.2s linear, visibility 0.2s linear;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+}
+
+/**************************** Diverse Colors *************************/
+
+[tooltip]:after {
+  background: #000;
+  color: lighten(#000, 80)
+}
+[tooltip~="success"] {
+  &[tooltip]:before {
+  border-top-color: $success-color;
+
+  }
+  &[tooltip]:after {
+  background-color: $success-color;
+  color: lighten($success-color, 80);
+}
+&[tooltip~="bottom"]:before {
+  border-bottom-color: $success-color;
+}
+&[tooltip~="bottom"]:after {
+  background-color: $success-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="left"]:before {
+  border-left-color: $success-color;
+}
+&[tooltip~="left"]:after {
+  background-color: $success-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="right"]:before {
+  border-right-color: $success-color;
+}
+&[tooltip~="right"]:after {
+  background-color: $success-color;
+  color: lighten($danger-color, 80);
+}
+}
+
+
+[tooltip~="primary"] {
+  &[tooltip]:before {
+  border-top-color: $primary-color;
+}
+&[tooltip]:after {
+  background-color: $primary-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="bottom"]:before {
+  border-bottom-color: $primary-color;
+}
+&[tooltip~="bottom"]:after {
+  background-color: $primary-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="left"]:before {
+  border-left-color: $primary-color;
+}
+&[tooltip~="left"]:after {
+  background-color: $primary-color;
+  color: lighten($danger-color, 80);
+}
+
+&[tooltip~="right"]:before {
+  border-right-color: $primary-color;
+}
+&[tooltip~="right"]:after {
+  background-color: $primary-color;
+  color: lighten($danger-color, 80);
+}
+}
+
+
+
+
+
+
+
+
+[tooltip~="danger"] {
+  &[tooltip]:before {
+  border-top-color: $danger-color;
+}
+&[tooltip]:after {
+  background-color: $danger-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="bottom"]:before {
+  border-bottom-color: $danger-color;
+}
+&[tooltip~="bottom"]:after {
+  background-color: $danger-color;
+  color: lighten($danger-color, 80);
+}
+
+&[tooltip~="left"]:before {
+  border-left-color: $danger-color;
+}
+&[tooltip~="left"]:after {
+  background-color: $danger-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="right"]:before {
+  border-right-color: $danger-color;
+}
+&[tooltip~="right"]:after {
+  background-color: $danger-color;
+  color: lighten($danger-color, 80);
+}
+}
+
+[tooltip~="warning"] {
+
+  &[tooltip]:before {
+  border-top-color: $warning-color;
+}
+&[tooltip]:after {
+  background-color: $warning-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="bottom"]:before {
+  border-bottom-color: $warning-color;
+}
+&[tooltip~="bottom"]:after {
+  background-color: $warning-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="left"]:before {
+  border-left-color: $warning-color;
+}
+&[tooltip~="left"]:after {
+  background-color: $warning-color;
+  color: lighten($danger-color, 80);
+}
+&[tooltip~="right"]:before {
+  border-right-color: $warning-color;
+}
+&[tooltip~="right"]:after {
+  background-color: $warning-color;
+  color: lighten($danger-color, 80);
+}
+}
+

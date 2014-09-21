@@ -1,8 +1,3 @@
-<html>
-	<head>
-		<link rel="stylesheet" href="/styles/styles.css"/>
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script>
 			var tinderPeople = tinderPeople || [];
 			var currentPerson = currentPerson || null;
 			var list = {};
@@ -66,29 +61,3 @@
 					}
 				}
 			});
-		</script>
-	</head>
-	<body>
-		<div id="person">
-			<div id="person-images">
-				<center>
-					<img src="/images/testpic.jpg" height="75%" id="tinder-image" />
-				</center>
-			</div>
-			<div id="person-details">
-				<div id="person-age">
-					24
-				</div>
-				<div id="person-name">
-					My Name
-				</div>
-				<div id="person-desc">
-					My description.
-				</div>
-				<div id="past">
-					Past:
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
