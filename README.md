@@ -1,10 +1,10 @@
 twitch-plays-tinder
 ===
 ```sh
-$ npm install
 $ cd twitch-plays-tinder-server
+$ npm install
 $ node app.js
-# App is now running at http://localhost:1337/main. 
+# App is now live at http://localhost:1337/main. 
 ```
 
 ## License
