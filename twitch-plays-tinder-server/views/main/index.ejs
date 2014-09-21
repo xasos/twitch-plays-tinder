@@ -1,11 +1,9 @@
 <html>
-
 <head>
+	<title>Twitch Plays Tinder</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/css/uikit.almost-flat.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/0.5.7/themes/black/pace-theme-bounce.css">
-
-    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/0.5.7/themes/black/pace-theme-bounce.css">    
 </head>
 
 <body ondragstart="return false">
@@ -37,13 +35,20 @@
 				
 				// listen for key taps
 				$(document).keydown(function(event){
-    				if (event.keyCode == 39) {
+    				// if (event.keyCode == 39) {
+    				// 	nextPerson();
+    				// };
+
+    				// if (event.keyCode == 37) {
+    				// 	nextPerson();
+    				// };	      
+    				if (event.keyCode == 76) {
     					nextPerson();
     				};
 
-    				if (event.keyCode == 37) {
+    				if (event.keyCode == 82) {
     					nextPerson();
-    				};	               
+    				};	         
 		        });
 
 		        pollForPeople();
