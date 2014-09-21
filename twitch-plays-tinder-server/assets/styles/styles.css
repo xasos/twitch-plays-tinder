@@ -25,6 +25,7 @@ body {
 #person-images img {
 	height: 400px;
 	max-height: 400px;
+	border-radius: 50%;
 }
 
 #person-age {

@@ -2,25 +2,25 @@
 	<head>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/css/addons/uikit.almost-flat.addons.min.css">
 		<link rel="stylesheet" href="/styles/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/css/addons/uikit.almost-flat.addons.min.css">
 		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/js/addons/notify.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/js/addons/notify.min.js"></script>
 		<script>
 			var list = {};
 			var personCount = 0; 
-			var pastPeople = {};
+			var pastPeople = [];
 
 			$(document).ready(function(){
 				
 				// listen for key taps
 				$(document).keydown(function(event){
     				if (event.keyCode == 39) {
-    					alert("right");
     					nextPerson();
     				};
 
     				if (event.keyCode == 37) {
-    					alert("left");
     					nextPerson();
     				};	               
 		        });
@@ -53,7 +53,9 @@
 					$('#main-img').attr('src', list.results[personCount].photos[personCount].processedFiles[0].url);
 					$("#person-age").text((list.results[personCount].birth_date).slice(0,10) -(list.results[personCount].ping_time).slice(0,10));
 					$("#person-name").text(list.results[personCount].name);
+					pastPeople += list.results[personCount].name + "\n";
 					$("#person-desc").text(list.results[personCount].bio);
+					$("#past").text("Past: " + pastPeople);
 					// if (personCount >= 1) {
 					// 	$("#person-past").text(list.(personCount-1).name);
 					// };	
