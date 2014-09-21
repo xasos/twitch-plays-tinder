@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/styles/styles.css"/>
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script>
+			var tinderPeople = tinderPeople || [];
+			var currentPerson = currentPerson || null;
+			var list = {};
+			var personCount = 0; 
+
+			$(document).ready(function(){
+				pollForPeople();
+				nextPerson();
+
+				// get data
+				function pollForPeople() {
+					$.ajax({
+						url: '/main/get',
+						data: '',
+						type: 'GET',
+						crossDomain: true,
+						success: function(data){
+							list = data;
+							console.log(list);
+							console.log(list.results[0].photos[0].processedFiles[0].url);
+							nextPerson();
+						},
+						error: function(){
+							console.log("Could not load data.")
+						}						
+					});
+				}
+
+				// listen for key taps
+				$(document).keydown(function(event){
+    				if (event.keyCode == 39) {
+    					alert("right");
+    					nextPerson();
+    				};
+
+    				if (event.keyCode == 37) {
+    					alert("left");
+    					nextPerson();
+    				};	               
+		        });
+
+				// now replaces user object with image 
+				function nextPerson(){
+					$('#main-img').attr('src', list.results[personCount].photos[personCount].processedFiles[0].url);
+					$("#person-age").text((list.results[personCount].birth_date-list.results[personCount].ping_time));
+					$("#person-name").text(list.results[personCount].name);
+					$("#person-desc").text(list.results[personCount].bio);
+					// if (personCount >= 1) {
+					// 	$("#person-past").text(list.(personCount-1).name);
+					// };	
+ 
+					personCount++;				
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="person">
+			<div id="person-images">
+				<img id="main-img" src="/images/testpic.jpg" height="75%" id="tinder-image" />				
+			</div>
+			<div id="person-details">
+				<div id="person-age">24</div>
+				<div id="person-name">My Name</div>
+				<div id="person-desc">My description.</div>
+				<div id="past">Past:</div>
+			</div>
+		</div>
+	</body>
+</html>
