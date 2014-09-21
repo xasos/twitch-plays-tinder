@@ -1,22 +1,37 @@
 <html>
 	<head>
-		<link rel="stylesheet" href="/styles/uikit.css"/> 
-		<script src="/js/jquery.js"></script>
-		<script src="/js/alert.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/css/addons/uikit.almost-flat.addons.min.css"/> 
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.10.0/js/addons/notify.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
 		<script>
-			var tinderPeople = tinderPeople || [];
-			var currentPerson = currentPerson || null;
 			var list = {};
 			var personCount = 0; 
+			var pastPeople = {};
 
 			$(document).ready(function(){
-				pollForPeople();
-				nextPerson();
+				
+				// listen for key taps
+				$(document).keydown(function(event){
+    				if (event.keyCode == 39) {
+    					alert("right");
+    					nextPerson();
+    				};
 
+    				if (event.keyCode == 37) {
+    					alert("left");
+    					nextPerson();
+    				};	               
+		        });
+
+		        pollForPeople();
+				nextPerson();
+		        
 				// get data
 				function pollForPeople() {
 					$.ajax({
-						url: '/main/get',
+						// url: '/main/get',
+						url: '../js/sample.json',
 						data: '',
 						type: 'GET',
 						crossDomain: true,
@@ -32,6 +47,7 @@
 					});
 				}
 
+<<<<<<< HEAD
 				// listen for key taps
 				$(document).keydown(function(event){
     				if (event.keyCode == 39) {
@@ -47,10 +63,12 @@
     				};	               
 		        });
 
+=======
+>>>>>>> 29cbe358de8ba4888a95e7550c2384dcb1de0435
 				// now replaces user object with image 
 				function nextPerson(){
 					$('#main-img').attr('src', list.results[personCount].photos[personCount].processedFiles[0].url);
-					$("#person-age").text((list.results[personCount].birth_date-list.results[personCount].ping_time));
+					$("#person-age").text((list.results[personCount].birth_date).slice(0,10) -(list.results[personCount].ping_time).slice(0,10));
 					$("#person-name").text(list.results[personCount].name);
 					$("#person-desc").text(list.results[personCount].bio);
 					// if (personCount >= 1) {
