@@ -4,7 +4,7 @@ twitch-plays-tinder
 $ npm install
 $ cd twitch-plays-tinder-server
 $ node app.js
-# App is now running at localhost:1337/main. 
+# App is now running at http://localhost:1337/main. 
 ```
 
 ## License
