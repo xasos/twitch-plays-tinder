@@ -6,7 +6,7 @@
 		<script>
 			var list = {};
 			var personCount = 0; 
-			var pastPeople = {};
+			var pastPeople = [];
 
 			$(document).ready(function(){
 				
@@ -51,7 +51,9 @@
 					$('#main-img').attr('src', list.results[personCount].photos[personCount].processedFiles[0].url);
 					$("#person-age").text((list.results[personCount].birth_date).slice(0,10) -(list.results[personCount].ping_time).slice(0,10));
 					$("#person-name").text(list.results[personCount].name);
+					pastPeople += list.results[personCount].name + "\n";
 					$("#person-desc").text(list.results[personCount].bio);
+					$("#past").text("Past: " + pastPeople);
 					// if (personCount >= 1) {
 					// 	$("#person-past").text(list.(personCount-1).name);
 					// };	
