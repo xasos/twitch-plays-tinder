@@ -20,14 +20,12 @@ $ python main.py
 ```
 
 ## Team      
-Contributer | Task
+Contributor | Task
 --- | ---
-[Andrew Breckenridge](andrewsb.github.io) | Twitch Integration
-[Henry Boldizsar](http://challengepost.com/users/Gibolt) | Tinder API
-[Niraj Pant](https://twitter.com/IamNotShiboYao) | UI + UX
-[Andy Fang](http://challengepost.com/users/wchill) | 
-
+[Andrew Breckenridge](https://github.com/andrewsb) | Twitch Integration
+[Henry Boldizsar](https://github.com/9o) | Back-End (Tinder API)
+[Niraj Pant](https://github.com/xasos) | Front-End
+[Andy Fang](https://github.com/AndyF) | Design
 
 ## License
 [MIT License](LICENSE)
-
