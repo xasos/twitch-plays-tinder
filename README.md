@@ -23,7 +23,7 @@ Contributor | Task
 [Andrew Breckenridge](https://github.com/andrewsb) | Twitch Integration
 [Henry Boldizsar](https://github.com/9o) | Back-End (Tinder API)
 [Niraj Pant](https://github.com/xasos) | Front-End
-[Andy Fang](https://github.com/AndyF) | Design
+[Andy Fang](https://github.com/AndyF) | Front-End & Design
 
 ## License
 [MIT License](LICENSE)
