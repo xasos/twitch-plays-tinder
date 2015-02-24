@@ -5,10 +5,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var FACEBOOK_ID = "1553721864851226"
-
-var FACEBOOK_TOKEN = "CAAGm0PX4ZCpsBAC3x4tcvFeeLJavrDNT2G7NT6XxZCx24PF2ZC6Y1GI5mRx3V6qOX5zc9IGoGDAGEZC5Y1IL5RMpQb17ZAEDQIgqALUlJfc5LdIhY3PRATJLUQEYZCkxZCZBLxrfJ076EmZBOKzq55ocxWnuILU0MM8uAEYsV0QMZAE2BhGmCCHlr2qR1lyJDT6A8ieNHHcVoXSuMzVLMmY5nDzWYhtsfG6ZBsh7yyLMsGcnnnjQ1fcfZCFfihGd2g3ZBtnoZD"
-
+var FACEBOOK_ID = process.env.FACEBOOK_ID;
+var FACEBOOK_TOKEN = process.env.FACEBOOK_TOKEN;
 
 var TinderPro = require('tinder_pro')
 var tinder = new TinderPro()
